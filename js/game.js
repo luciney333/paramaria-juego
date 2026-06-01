@@ -60,15 +60,13 @@ class Game {
 
     // Partículas de salto
     this.particles = [];
-     // Snacks cayendo de fondo
+ // Snacks cayendo de fondo
     this.snacks = Array.from({ length: 8 }, () => ({
       x: Math.random() * this.width,
       y: Math.random() * this.height,
-      tipo: Math.random() > 0.5 ? "🍪" : "🍟",
-      size: Math.random() * 14 + 12,
+      tipo: Math.random() > 0.5 ? "galleta" : "patata",
+      size: Math.random() * 10 + 10,
       speed: Math.random() * 1.2 + 0.4,
-      rot: Math.random() * Math.PI * 2,
-      rotV: (Math.random() - 0.5) * 0.04,
       alpha: Math.random() * 0.4 + 0.2,
     }));
 
@@ -260,19 +258,34 @@ class Game {
     ctx.stroke();
     ctx.shadowBlur = 0;
 
-// Dibujar snacks (optimizado)
-    ctx.textAlign = "center";
+// Dibujar snacks (compatible iOS)
     this.snacks.forEach((s) => {
       ctx.globalAlpha = s.alpha;
-      ctx.font = `${s.size}px serif`;
-      ctx.save();
-      ctx.translate(s.x, s.y);
-      ctx.rotate(s.rot);
-      ctx.fillText(s.tipo, 0, 0);
-      ctx.restore();
+      if (s.tipo === "galleta") {
+        // Círculo marrón con puntitos
+        ctx.fillStyle = "#c8a165";
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#7a4f2a";
+        ctx.beginPath();
+        ctx.arc(s.x - 3, s.y - 2, 2, 0, Math.PI * 2);
+        ctx.arc(s.x + 3, s.y + 2, 2, 0, Math.PI * 2);
+        ctx.arc(s.x + 2, s.y - 4, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        // Rectángulo amarillo (patata frita)
+        ctx.fillStyle = "#f5c842";
+        ctx.beginPath();
+        ctx.roundRect(s.x, s.y, s.size * 0.4, s.size * 1.2, 2);
+        ctx.fill();
+        ctx.fillStyle = "#e8a820";
+        ctx.beginPath();
+        ctx.roundRect(s.x + 2, s.y + 2, s.size * 0.15, s.size * 0.8, 1);
+        ctx.fill();
+      }
     });
     ctx.globalAlpha = 1;
-    ctx.textAlign = "left";
     
     // Obstáculos
     this.obstacles.forEach((o) => {
