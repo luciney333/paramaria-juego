@@ -1,0 +1,2 @@
+Coloca aquí tu icono con el nombre exacto: icon.png
+Debe ser una imagen cuadrada de mínimo 192x192 píxeles.
