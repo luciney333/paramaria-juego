@@ -43,7 +43,7 @@ class Game {
     ];
 
     // Estrellas de fondo
-    this.stars = Array.from({ length: 60 }, () => ({
+    this.stars = Array.from({ length: 25 }, () => ({
       x: Math.random() * this.width,
       y: Math.random() * (this.groundY - 40),
       r: Math.random() * 2 + 0.5,
@@ -172,8 +172,10 @@ class Game {
     }
 
     this.obstacles.forEach((o) => (o.x -= CONFIG.velocidadJuego));
-    this.obstacles = this.obstacles.filter((o) => o.x + o.width > -10);
-
+ this.obstacles = this.obstacles.filter((o) => o.x + o.width > -10);
+    if (this.obstacles.length > CONFIG.maxObstaculos) {
+      this.obstacles.shift();
+    }
    // Colisiones
     for (const o of this.obstacles) {
       if (this.checkCollision(this.player, o)) {
