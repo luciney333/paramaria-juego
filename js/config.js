@@ -28,7 +28,7 @@ const CONFIG = {
     },
     {
       foto: "assets/fotos/foto3.jpeg",
-      frase: "🎵 Nuestro primer concierto juntas."
+      frase: "🎵 Nuestro primer concierto juntas. Tú muy dela y yo muy morad xxd"
     },
     {
       foto: "assets/fotos/foto4.jpeg",
