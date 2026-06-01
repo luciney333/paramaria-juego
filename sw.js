@@ -1,5 +1,5 @@
 // Service Worker - Permite que la app funcione sin internet
-const CACHE_NAME = 'maria-lucia-v1';
+const CACHE_NAME = 'maria-lucia-v3';
 const ARCHIVOS = [
   './',
   './index.html',
