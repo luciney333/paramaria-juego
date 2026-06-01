@@ -165,10 +165,11 @@ class Game {
     this.obstacles.forEach((o) => (o.x -= CONFIG.velocidadJuego));
     this.obstacles = this.obstacles.filter((o) => o.x + o.width > -10);
 
-    // Colisiones
+   // Colisiones
     for (const o of this.obstacles) {
       if (this.checkCollision(this.player, o)) {
-        this.onDeath();
+        this.stop();
+        if (typeof window.onDeath === "function") window.onDeath();
         return;
       }
     }
