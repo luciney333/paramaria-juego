@@ -19,23 +19,23 @@ const CONFIG = {
   // Nómbralas: foto1.jpg, foto2.jpg, foto3.jpg, foto4.jpg, foto5.jpg
   recuerdos: [
     {
-      foto: "assets/fotos/foto1.jpg",
+      foto: "assets/fotos/foto1.jpeg",
       frase: "💥 BOOMBAAA la primera en la cara, aquí empezó todo. Una de las primeras fotos de tantas..."
     },
     {
-      foto: "assets/fotos/foto2.jpg",
+      foto: "assets/fotos/foto2.jpeg",
       frase: "Esta foto representa una vuelta a nuestras vidas, sobre todo cuando más nos necesitábamos las dos. Fue la primera después de casi 6 años sin contacto. 🤍"
     },
     {
-      foto: "assets/fotos/foto3.jpg",
+      foto: "assets/fotos/foto3.jpeg",
       frase: "🎵 Nuestro primer concierto juntas."
     },
     {
-      foto: "assets/fotos/foto4.jpg",
+      foto: "assets/fotos/foto4.jpeg",
       frase: "Cómo olvidar este día... Creo que ahí nos dimos cuenta de que nunca perdimos la vibra entre nosotras, que realmente nuestra amistad era pura. 💫"
     },
     {
-      foto: "assets/fotos/foto5.jpg",
+      foto: "assets/fotos/foto5.jpeg",
       frase: "Gracias por estar conmigo en ese día tan bonito, pequeña cómplice de mi hermana jejejej 🥹"
     }
   ],
