@@ -43,7 +43,7 @@ class Game {
     ];
 
     // Estrellas de fondo
-    this.stars = Array.from({ length: 25 }, () => ({
+    this.stars = Array.from({ length: 10 }, () => ({
       x: Math.random() * this.width,
       y: Math.random() * (this.groundY - 40),
       r: Math.random() * 2 + 0.5,
@@ -51,7 +51,7 @@ class Game {
     }));
 
     // Nubes decorativas
-    this.clouds = Array.from({ length: 5 }, (_, i) => ({
+    this.clouds = Array.from({ length: 2 }, (_, i) => ({
       x: (i * this.width) / 4,
       y: 40 + Math.random() * 80,
       w: 80 + Math.random() * 60,
@@ -96,7 +96,6 @@ class Game {
       this.player.vy = this.jumpForce;
       this.player.onGround = false;
       this.player.jumpCount++;
-      this.spawnJumpParticles();
     }
   }
 
