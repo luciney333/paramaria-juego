@@ -63,6 +63,7 @@ Ojalá sigamos progresando juntas... 🌸`,
 
   // --- DIFICULTAD DEL JUEGO ---
   // Ajusta cuántos obstáculos hay y su velocidad
-  velocidadJuego: 4,        // píxeles por frame (más alto = más difícil)
-  frecuenciaObstaculos: 90, // frames entre obstáculos (menos = más difícil)
+ velocidadJuego: 4,
+ frecuenciaObstaculos: 90,
+ maxObstaculos: 5,
 };
