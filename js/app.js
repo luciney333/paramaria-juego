@@ -237,7 +237,25 @@ function volverAlInicio() {
     game.stop();
     game = null;
   }
+
+  // Reset completo del vídeo
+  const video = document.getElementById("video-final");
+  video.pause();
+  video.src = "";
+  video.load();
+  document.getElementById("video-error").style.display = "none";
+  document.getElementById("video-final").style.display = "block";
+
+  // Reset pantalla celebración
+  document.getElementById("texto-reflexion").classList.remove("visible");
+  document.getElementById("btn-sorpresa").classList.remove("visible");
+
+  // Reset pantalla final
+  document.getElementById("btn-volver").classList.remove("visible");
+
+  // Reset contador de recuerdos
   recuerdoActual = 0;
+
   mostrarPantalla("pantalla-inicio");
 }
 
