@@ -60,6 +60,17 @@ class Game {
 
     // Partículas de salto
     this.particles = [];
+     // Snacks cayendo de fondo
+    this.snacks = Array.from({ length: 18 }, () => ({
+      x: Math.random() * this.width,
+      y: Math.random() * this.height,
+      tipo: Math.random() > 0.5 ? "🍪" : "🍟",
+      size: Math.random() * 14 + 12,
+      speed: Math.random() * 1.2 + 0.4,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.04,
+      alpha: Math.random() * 0.4 + 0.2,
+    }));
 
     // Inicializar posición del jugador
     this.player.y = this.groundY - this.player.height;
@@ -173,6 +184,15 @@ class Game {
         return;
       }
     }
+    // Mover snacks
+    this.snacks.forEach((s) => {
+      s.y += s.speed;
+      s.rot += s.rotV;
+      if (s.y > this.height + 20) {
+        s.y = -20;
+        s.x = Math.random() * this.width;
+      }
+    });
 
     // Partículas
     this.particles.forEach((p) => {
@@ -241,6 +261,19 @@ class Game {
     ctx.stroke();
     ctx.shadowBlur = 0;
 
+// Dibujar snacks
+    this.snacks.forEach((s) => {
+      ctx.save();
+      ctx.globalAlpha = s.alpha;
+      ctx.font = `${s.size}px serif`;
+      ctx.textAlign = "center";
+      ctx.translate(s.x, s.y);
+      ctx.rotate(s.rot);
+      ctx.fillText(s.tipo, 0, 0);
+      ctx.restore();
+    });
+    ctx.globalAlpha = 1;
+    
     // Obstáculos
     this.obstacles.forEach((o) => {
       this.drawObstacle(o);
