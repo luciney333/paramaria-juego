@@ -61,7 +61,7 @@ class Game {
     // Partículas de salto
     this.particles = [];
      // Snacks cayendo de fondo
-    this.snacks = Array.from({ length: 18 }, () => ({
+    this.snacks = Array.from({ length: 8 }, () => ({
       x: Math.random() * this.width,
       y: Math.random() * this.height,
       tipo: Math.random() > 0.5 ? "🍪" : "🍟",
@@ -187,7 +187,6 @@ class Game {
     // Mover snacks
     this.snacks.forEach((s) => {
       s.y += s.speed;
-      s.rot += s.rotV;
       if (s.y > this.height + 20) {
         s.y = -20;
         s.x = Math.random() * this.width;
@@ -261,18 +260,19 @@ class Game {
     ctx.stroke();
     ctx.shadowBlur = 0;
 
-// Dibujar snacks
+// Dibujar snacks (optimizado)
+    ctx.textAlign = "center";
     this.snacks.forEach((s) => {
-      ctx.save();
       ctx.globalAlpha = s.alpha;
       ctx.font = `${s.size}px serif`;
-      ctx.textAlign = "center";
+      ctx.save();
       ctx.translate(s.x, s.y);
       ctx.rotate(s.rot);
       ctx.fillText(s.tipo, 0, 0);
       ctx.restore();
     });
     ctx.globalAlpha = 1;
+    ctx.textAlign = "left";
     
     // Obstáculos
     this.obstacles.forEach((o) => {
