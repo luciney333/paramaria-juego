@@ -184,7 +184,8 @@ class Game {
         return;
       }
     }
-    // Mover snacks
+    // Mover snacks (desactivado)
+    /*
     this.snacks.forEach((s) => {
       s.y += s.speed;
       if (s.y > this.height + 20) {
@@ -192,7 +193,7 @@ class Game {
         s.x = Math.random() * this.width;
       }
     });
-
+    */
     // Partículas
     this.particles.forEach((p) => {
       p.x += p.vx;
@@ -260,7 +261,8 @@ class Game {
     ctx.stroke();
     ctx.shadowBlur = 0;
 
-// Dibujar snacks (compatible iOS)
+ // Dibujar snacks (desactivado)
+    /*
     this.snacks.forEach((s) => {
       ctx.globalAlpha = s.alpha;
       if (s.tipo === "galleta") {
@@ -286,7 +288,7 @@ class Game {
         ctx.roundRect(s.x + 2, s.y + 2, s.size * 0.15, s.size * 0.8, 1);
         ctx.fill();
       }
-    });
+    });    */
     ctx.globalAlpha = 1;
     
     // Obstáculos
